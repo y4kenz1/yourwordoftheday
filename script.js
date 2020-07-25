@@ -1,6 +1,16 @@
 var api = "jep3lf7tgact04gld9y8f7r5kd9ogp162zic86a90jx977fmj";
 
-const url = "https://api.wordnik.com/v4/words.json/wordOfTheDay?date=2020-07-24&api_key=" + api;
+var date = new Date();
+
+var day;
+
+if (date.getMonth < 10) {
+    day = "0" + date.getMonth().toString();
+} else {
+    day = date.getMonth();
+}
+
+const url = "https://api.wordnik.com/v4/words.json/wordOfTheDay?date=" + date.getFullYear().toString() + "-" + day.toString() + "-" + date.getDay().toString() + "&api_key=" + api;
 
 const body = document.querySelector('.body');
 
